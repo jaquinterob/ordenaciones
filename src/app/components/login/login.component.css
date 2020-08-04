@@ -1,0 +1,27 @@
+#contenedor_card {
+    width: 32%;
+    margin: auto;
+    margin-top: 5%;
+}
+
+.mat-card-actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.mat-flat-button {
+    width: 100%;
+}
+
+.mat-form-field {
+    width: 100%;
+}
+
+@media (max-width: 600px) {
+    #contenedor_card {
+        width: 80%;
+        margin: auto;
+        margin-top: 10%;
+    }
+}
