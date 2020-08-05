@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ApiService } from "../../api.service";
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,7 @@ export class LoginComponent implements OnInit {
     'blue': 'mat-accent',
     'red': 'mat-warn'
   }
-  constructor(private _toast: MatSnackBar) { }
+  constructor(private _toast: MatSnackBar, private _api:ApiService) { }
 
   ngOnInit(): void {
   }
