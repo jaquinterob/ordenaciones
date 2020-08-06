@@ -1,45 +1,70 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ApiService } from "../../api.service";
-
+import { Router } from "@angular/router"
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  barrioPorDefecto:string = 'sabaneta'
-  barrio:string = this.barrioPorDefecto
-  user:string = ''
-  pass:string = ''
+  barrioPorDefecto: string = '1'
+  barrio: string = this.barrioPorDefecto
+  user: string = ''
+  pass: string = ''
   colores = {
     'blue': 'mat-accent',
     'red': 'mat-warn'
   }
-  constructor(private _toast: MatSnackBar, private _api:ApiService) { }
+  constructor(private _toast: MatSnackBar, private _api: ApiService, private _router:Router) { }
 
   ngOnInit(): void {
+    // this.validarLocalStorage()
   }
 
-  validarCredenciales(){
-    if (this.camposCompletos()) {
-      
-    } else {
-      
+  validarLocalStorage() {
+    if (localStorage.getItem('ordenaciones')) {
+      const { user, pass, barrio } = JSON.parse(localStorage.getItem('ordenaciones'))
+      this.user = user
+      this.pass = pass
+      this.barrio = barrio
+      this.validarCredenciales()
     }
-    console.log(this.barrio);
   }
 
-  camposCompletos(){
+  validarCredenciales() {
+    if (this.camposCompletos()) {
+      this._api.validarCredenciales(this.user, this.pass, this.barrio).subscribe(
+        data => {
+          if (data['auth']) {
+            this.mostrarToast("Entrando", '', 3000, 'blue');
+            this._router.navigate(['/home'])
+            localStorage.setItem('ordenaciones', JSON.stringify({
+              user: this.user,
+              pass: this.pass,
+              barrio: this.barrio
+            }))
+          } else {
+            this.mostrarToast(data['message'], '', 3000, 'red');
+          }
+        },
+        error => {
+          this.mostrarToast('Error al autenticar' + error, '', 3000, 'red');
+        }
+      )
+    }
+  }
+
+  camposCompletos() {
     if (this.user !== '') {
       if (this.pass !== '') {
         return true
       } else {
-        this.mostrarToast('Falta contraseña', '',3000, 'red');
+        this.mostrarToast('Falta contraseña', '', 3000, 'red');
         return false
       }
     } else {
-      this.mostrarToast('Falta usuario', '',3000, 'red');
+      this.mostrarToast('Falta usuario', '', 3000, 'red');
       return false
     }
   }

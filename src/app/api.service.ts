@@ -6,17 +6,16 @@ import { HttpClient } from "@angular/common/http";
 })
 export class ApiService {
 
-  constructor(private _http: HttpClient) {
-    _http.get('http://localhost:4000/api/ordenaciones/usuario/eva').subscribe(
-      data => {
-        console.log(data)
-      },
-      error => {
-        console.log(error)
+  constructor(private _http: HttpClient) { }
 
-      }
-    )
+  validarCredenciales(user: string, pass: string, barrio: string) {
+    const body = {
+      "user": user,
+      "pass": pass,
+      "barrio": barrio
+    }
+    return this._http.post('http://localhost:4000/api/ordenaciones/usuarios/login', body)
   }
-
-
 }
+
+
