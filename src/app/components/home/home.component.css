@@ -1,0 +1,46 @@
+.tarjeta {
+    margin: 15px;
+}
+
+.contenedor_miniaturas {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.miniatura {
+    margin: 5px;
+    padding: 4px;
+    background-color: #484445;
+}
+
+.cumplida {
+    background-color: #c13d59ad;
+    border: 1px solid #ffffff14;
+    border-radius: 4px;
+}
+
+.contenedor_notas {
+    display: flex;
+    flex-direction: row;
+}
+
+.nota {
+    margin: 5px;
+    padding: 13px;
+    background-color: #484848;
+    border-radius: 7px;
+    color: #d6d6d6;
+}
+
+.autor_nota {
+    width: 100%;
+    justify-content: right !important;
+    display: inline-grid;
+}
+
+.flotante {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+}
