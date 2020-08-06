@@ -3,7 +3,6 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { ApiService } from "../../api.service";
 import { Router } from "@angular/router"
 
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -18,11 +17,10 @@ export class LoginComponent implements OnInit {
     'blue': 'mat-accent',
     'red': 'mat-warn'
   }
-  constructor(private _toast: MatSnackBar, private _api: ApiService, private _router:Router) { }
+  constructor(private _toast: MatSnackBar, private _api: ApiService, private _router: Router) { }
 
   ngOnInit(): void {
-    // this.validarLocalStorage()
-
+    this.validarLocalStorage()
   }
 
   validarLocalStorage() {
@@ -40,7 +38,7 @@ export class LoginComponent implements OnInit {
       this._api.validarCredenciales(this.user, this.pass, this.barrio).subscribe(
         data => {
           if (data['auth']) {
-            this.mostrarToast("Entrando", '', 3000, 'blue');
+            this.mostrarToast(`Hola ${data['nombre']}!`, '', 3000, 'blue');
             this._router.navigate(['/home'])
             localStorage.setItem('ordenaciones', JSON.stringify({
               user: this.user,

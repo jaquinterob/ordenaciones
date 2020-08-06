@@ -30,14 +30,16 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MainNavComponent } from './main-nav/main-nav.component';
-import { HomeComponent } from './components/home/home.component'
+import { HomeComponent } from './components/home/home.component';
+import { CrearCadidatoComponent } from './components/crear-cadidato/crear-cadidato.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     MainNavComponent,
-    HomeComponent
+    HomeComponent,
+    CrearCadidatoComponent
   ],
   imports: [
     BrowserModule,
