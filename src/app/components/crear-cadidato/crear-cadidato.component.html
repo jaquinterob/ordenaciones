@@ -5,14 +5,27 @@
         <div class="item_formulario">
             <mat-form-field color="accent" class="full-width">
                 <mat-label>Nombre</mat-label>
-                <input autofocus matInput>
+                <input [(ngModel)]="candidato.nombre" matInput>
             </mat-form-field>
         </div>
         <div class="item_formulario">
             <mat-form-field color="accent" class="full-width">
                 <mat-label>Celular</mat-label>
-                <input type="number" matInput>
+                <input [(ngModel)]="candidato.celular" type="tel" matInput>
             </mat-form-field>
+        </div>
+        <div class="item_formulario">
+            <mat-form-field color="accent" appearance="fill">
+                <mat-label>Fecha de ordenación | Meta</mat-label>
+                <input [min]="minDate" [(ngModel)]="candidato.meta" matInput [matDatepicker]="picker1">
+                <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                <mat-datepicker #picker1></mat-datepicker>
+            </mat-form-field>
+        </div>
+        <div class="item_formulario">
+            <div class="item_formulario">
+                <button (click)="guardarCandidato()" mat-raised-button color="primary">CREAR</button>
+            </div>
         </div>
     </div>
 

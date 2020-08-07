@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-// import { MainNavComponent } from '../../main-nav/main-nav.component'
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Router } from "@angular/router"
 
 @Component({
   selector: 'app-home',
@@ -9,9 +9,13 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog
 })
 export class HomeComponent implements OnInit {
 
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog, private _router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  crearCandidato() {
+    this._router.navigate(['/crear_candidato'])
   }
 
 }
