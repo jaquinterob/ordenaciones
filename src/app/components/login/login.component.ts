@@ -9,6 +9,7 @@ import { Router } from "@angular/router"
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  loader = false
   barrioPorDefecto: string = '1'
   barrio: string = this.barrioPorDefecto
   user: string = ''
@@ -20,7 +21,7 @@ export class LoginComponent implements OnInit {
   constructor(private _toast: MatSnackBar, private _api: ApiService, private _router: Router) { }
 
   ngOnInit(): void {
-    this.validarLocalStorage()
+    // this.validarLocalStorage()
   }
 
   validarLocalStorage() {
@@ -45,27 +46,32 @@ export class LoginComponent implements OnInit {
               pass: this.pass,
               barrio: this.barrio
             }))
+            this.loader = false
           } else {
             this.mostrarToast(data['message'], '', 3000, 'red');
+            this.loader = false
           }
         },
         error => {
           this.mostrarToast('Error al autenticar' + error, '', 3000, 'red');
+          this.loader = false
         }
-      )
-    }
-  }
-
-  camposCompletos() {
-    if (this.user !== '') {
-      if (this.pass !== '') {
-        return true
-      } else {
-        this.mostrarToast('Falta contraseña', '', 3000, 'red');
-        return false
+        )
       }
-    } else {
-      this.mostrarToast('Falta usuario', '', 3000, 'red');
+    }
+    
+    camposCompletos() {
+      if (this.user !== '') {
+        if (this.pass !== '') {
+          return true
+        } else {
+          this.mostrarToast('Falta contraseña', '', 3000, 'red');
+          this.loader = false
+          return false
+        }
+      } else {
+        this.mostrarToast('Falta usuario', '', 3000, 'red');
+        this.loader = false
       return false
     }
   }

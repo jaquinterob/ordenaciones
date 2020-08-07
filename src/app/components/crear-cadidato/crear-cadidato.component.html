@@ -1,5 +1,5 @@
 <app-main-nav>
-
+    <mat-progress-bar style="position:absolute" *ngIf="loader" mode="indeterminate"></mat-progress-bar>
     <div class="contenedor_formulario">
         <h1>Nuevo Candidato</h1>
         <div class="item_formulario">
@@ -11,7 +11,7 @@
         <div class="item_formulario">
             <mat-form-field color="accent" class="full-width">
                 <mat-label>Celular</mat-label>
-                <input [(ngModel)]="candidato.celular" type="tel" matInput>
+                <input [(ngModel)]="candidato.celular" type="number" matInput>
             </mat-form-field>
         </div>
         <div class="item_formulario">
@@ -25,8 +25,8 @@
         <div class="item_formulario">
             <div class="item_formulario">
                 <button (click)="guardarCandidato()" mat-raised-button color="primary">CREAR</button>
+                <a [routerLink]="['/home']" style=" margin-left:5px " mat-button>VER CANDIDATOS</a>
             </div>
         </div>
     </div>
-
 </app-main-nav>

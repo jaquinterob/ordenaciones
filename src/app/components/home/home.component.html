@@ -1,9 +1,9 @@
 <app-main-nav>
-    <div class="tarjeta">
-        <mat-card class="example-card">
+    <div *ngFor="let candidato of candidatos" class="tarjeta">
+        <mat-card (click)="editarCandidato(candidato._id)" class="example-card">
             <mat-card-header>
-                <mat-card-title>Danie Fernando Montoya</mat-card-title>
-                <mat-card-subtitle>Meta de ordenación: 17/12/2020</mat-card-subtitle>
+                <mat-card-title>{{candidato.nombre}}</mat-card-title>
+                <mat-card-subtitle>Meta de ordenación: {{candidato.meta | date:'dd/MM/yyyy'}}</mat-card-subtitle>
             </mat-card-header>
             <mat-card-content>
                 <div class="contenedor_miniaturas">
@@ -36,42 +36,7 @@
             </mat-card-content>
         </mat-card>
     </div>
-    <div class="tarjeta">
-        <mat-card class="example-card">
-            <mat-card-header>
-                <mat-card-title>Danie Fernando Montoya</mat-card-title>
-                <mat-card-subtitle>Meta de ordenación: 17/12/2020</mat-card-subtitle>
-            </mat-card-header>
-            <mat-card-content>
-                <div class="contenedor_miniaturas">
-                    <div class="miniatura cumplida">
-                        L1
-                    </div>
-                    <div class="miniatura cumplida">
-                        L2
-                    </div>
-                    <div class="miniatura cumplida">
-                        L3
-                    </div>
-                    <div class="miniatura">
-                        L4
-                    </div>
-                    <div class="miniatura">
-                        L5
-                    </div>
-                    <div class="miniatura">
-                        L6
-                    </div>
-                    <div class="miniatura">
-                        L7
-                    </div>
-                    <div class="miniatura">
-                        REC
-                    </div>
-                </div>
-            </mat-card-content>
-        </mat-card>
-    </div>
+
     <button (click)="crearCandidato()" class="flotante" mat-fab color="primary" aria-label="Example icon button with a delete icon">
         <mat-icon >add</mat-icon>
       </button>

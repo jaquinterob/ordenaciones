@@ -10,6 +10,7 @@ import { ApiService } from "../../api.service";
   styleUrls: ['./crear-cadidato.component.css']
 })
 export class CrearCadidatoComponent implements OnInit {
+  loader = false
   candidato: candidatoInterface = {}
   minDate = new Date()
   colores = {
@@ -21,19 +22,23 @@ export class CrearCadidatoComponent implements OnInit {
   ngOnInit(): void { }
 
   guardarCandidato() {
+    this.loader = true
     if (this.validarCandidato()) {
       this._api.crearCandidato(this.candidato).subscribe(
         estado => {
           this.mostrarToast(estado['message'], '', 3000, 'blue');
-          this.candidato={}
+          this.candidato = {}
+          this.loader = false
         },
-        (error:ErrorHandler) => {
+        (error: ErrorHandler) => {
           this.mostrarToast(`Error: ${error.toString()}`, '', 3000, 'red');
+          this.loader = false
         }
-      )
-    } else {
-      this.mostrarToast("Faltan datos", '', 3000, 'red');
-    }
+        )
+      } else {
+        this.mostrarToast("Faltan datos", '', 3000, 'red');
+        this.loader = false
+      }
   }
 
   validarCandidato() {

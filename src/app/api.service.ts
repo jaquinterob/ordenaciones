@@ -21,6 +21,10 @@ export class ApiService {
   crearCandidato(candidato:candidatoInterface){
     return this._http.post<candidatoInterface>('http://localhost:4000/api/ordenaciones/candidatos/', candidato)
   }
+
+  mostrarCandidatos(){
+    return this._http.get('http://localhost:4000/api/ordenaciones/candidatos/')
+  }
 }
 
 
