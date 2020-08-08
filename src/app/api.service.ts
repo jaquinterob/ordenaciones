@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
-import {candidatoInterface} from './models/candidato.interface'
+import { candidatoInterface } from './models/candidato.interface'
+import { gestionesInterface } from './models/gestiones.interface'
 
 @Injectable({
   providedIn: 'root'
@@ -27,7 +28,12 @@ export class ApiService {
   }
 
   mostrarCandidato(idCandidato){
-    return this._http.get('http://localhost:4000/api/ordenaciones/candidatos/'+idCandidato)
+    return this._http.get('http://localhost:4000/api/ordenaciones/candidatos/' + idCandidato)
+  }
+  
+  actualizarGestiones(gestiones:gestionesInterface){
+    return this._http.put('http://localhost:4000/api/ordenaciones/candidatos/', gestiones)
+
   }
 
 }

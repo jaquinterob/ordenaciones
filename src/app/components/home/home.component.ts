@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
     'blue': 'mat-accent',
     'red': 'mat-warn'
   }
-  constructor(private _toast: MatSnackBar,private _router: Router, private _api: ApiService) { }
+  constructor(private _toast: MatSnackBar, private _router: Router, private _api: ApiService) { }
 
   ngOnInit(): void {
     this.mostrarCandidatos()
@@ -31,20 +31,18 @@ export class HomeComponent implements OnInit {
       data => {
         if (data['ok']) {
           this.candidatos = data['candidatos']
-          console.log(this.candidatos);
         } else {
           this.mostrarToast(data['message'], '', 3000, 'red');
         }
       },
       (error: ErrorHandler) => {
-        console.log(error);
+        this.mostrarToast(`Error al cargar candidatos: ${error}`, '', 3000, 'red');
       }
-      )
-    }
-    
-    editarCandidato(id){
-      this.mostrarToast(id, '', 3000, 'blue');
+    )
+  }
 
+  editarCandidato(id) {
+    this._router.navigate(['/gestionar', id])
   }
 
   mostrarToast(mensaje: string, accion: string = '', duracion: number = 3000, color: string = 'blue') {

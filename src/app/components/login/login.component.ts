@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
   constructor(private _toast: MatSnackBar, private _api: ApiService, private _router: Router) { }
 
   ngOnInit(): void {
-    // this.validarLocalStorage()
+    this.validarLocalStorage()
   }
 
   validarLocalStorage() {
