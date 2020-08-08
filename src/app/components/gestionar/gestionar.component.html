@@ -1,0 +1,37 @@
+<app-main-nav>
+    <div class="contenedor_pagina">
+        <span class="nombre_candidato">{{candidato.nombre}}</span><br>
+        <span style="color:#afafaf">Feha de ordenación | Meta:</span>
+        <span>{{candidato.meta | date:'dd/MM/yyyy'}}</span><br>
+        <span style="color:#afafaf">Celular:</span>
+        <span>{{candidato.celular}}</span>
+        <hr>
+        <div>
+            <mat-slide-toggle [checked]="gestiones.l1" [(ngModel)]="gestiones.l1" class="gestion" color="primary">
+                Lección 1
+            </mat-slide-toggle>
+            <mat-slide-toggle [checked]="gestiones.l2" [(ngModel)]="gestiones.l2" class="gestion" color="primary">
+                Lección 2
+            </mat-slide-toggle>
+            <mat-slide-toggle (change)="verCambio()" [checked]="gestiones.l3" [(ngModel)]="gestiones.l3" class="gestion" color="primary">
+                Lección 3
+            </mat-slide-toggle>
+            <mat-slide-toggle [checked]="gestiones.l4" class="gestion" color="primary">
+                Lección 4
+            </mat-slide-toggle>
+            <mat-slide-toggle [checked]="gestiones.l5" class="gestion" color="primary">
+                Lección 5
+            </mat-slide-toggle>
+            <mat-slide-toggle [checked]="gestiones.l6" class="gestion" color="primary">
+                Lección 6
+            </mat-slide-toggle>
+            <mat-slide-toggle [checked]="gestiones.l7" class="gestion" color="primary">
+                Lección 7
+            </mat-slide-toggle>
+            <br>
+            <mat-slide-toggle [checked]="gestiones.rec" class="gestion" color="primary">
+                Ha sido recomendado por el obispo
+            </mat-slide-toggle>
+        </div>
+    </div>
+</app-main-nav>

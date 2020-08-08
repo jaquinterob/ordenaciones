@@ -1,0 +1,18 @@
+.contenedor_pagina {
+    margin: 15px;
+    padding: 15px;
+}
+
+.subtitulo {
+    color: grey;
+}
+
+.nombre_candidato {
+    font-size: 20px;
+}
+
+.gestion {
+    margin: 5px;
+    margin-bottom: 0px;
+    width: 100%;
+}

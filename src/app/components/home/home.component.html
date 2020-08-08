@@ -7,28 +7,28 @@
             </mat-card-header>
             <mat-card-content>
                 <div class="contenedor_miniaturas">
-                    <div class="miniatura cumplida">
+                    <div [ngClass]="{'cumplida':candidato.gestiones[0].l1}" class="miniatura ">
                         L1
                     </div>
-                    <div class="miniatura cumplida">
+                    <div [ngClass]="{'cumplida':candidato.gestiones[0].l2}" class="miniatura ">
                         L2
                     </div>
-                    <div class="miniatura cumplida">
+                    <div [ngClass]="{'cumplida':candidato.gestiones[0].l3}" class="miniatura ">
                         L3
                     </div>
-                    <div class="miniatura">
+                    <div [ngClass]="{'cumplida':candidato.gestiones[0].l4}" class="miniatura">
                         L4
                     </div>
-                    <div class="miniatura">
+                    <div [ngClass]="{'cumplida':candidato.gestiones[0].l5}" class="miniatura">
                         L5
                     </div>
-                    <div class="miniatura">
+                    <div [ngClass]="{'cumplida':candidato.gestiones[0].l6}" class="miniatura">
                         L6
                     </div>
-                    <div class="miniatura">
+                    <div [ngClass]="{'cumplida':candidato.gestiones[0].l7}" class="miniatura">
                         L7
                     </div>
-                    <div class="miniatura cumplida">
+                    <div [ngClass]="{'cumplida':candidato.gestiones[0].rec}" class="miniatura">
                         REC
                     </div>
                 </div>

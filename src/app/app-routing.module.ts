@@ -3,6 +3,7 @@ import { CrearCadidatoComponent } from './components/crear-cadidato/crear-cadida
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
+import { GestionarComponent } from './components/gestionar/gestionar.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,10 @@ const routes: Routes = [
   {
     path: 'crear_candidato',
     component: CrearCadidatoComponent,
+  },
+  {
+    path: 'gestionar/:id',
+    component: GestionarComponent,
   },
   {
     path: '**',

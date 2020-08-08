@@ -25,6 +25,11 @@ export class ApiService {
   mostrarCandidatos(){
     return this._http.get('http://localhost:4000/api/ordenaciones/candidatos/')
   }
+
+  mostrarCandidato(idCandidato){
+    return this._http.get('http://localhost:4000/api/ordenaciones/candidatos/'+idCandidato)
+  }
+
 }
 
 

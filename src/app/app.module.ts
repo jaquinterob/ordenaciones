@@ -26,6 +26,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatListModule } from '@angular/material/list';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 //componentes
 import { LoginComponent } from './components/login/login.component';
@@ -33,6 +35,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { HomeComponent } from './components/home/home.component';
 import { CrearCadidatoComponent } from './components/crear-cadidato/crear-cadidato.component';
+import { GestionarComponent } from './components/gestionar/gestionar.component';
 
 
 @NgModule({
@@ -41,7 +44,8 @@ import { CrearCadidatoComponent } from './components/crear-cadidato/crear-cadida
     LoginComponent,
     MainNavComponent,
     HomeComponent,
-    CrearCadidatoComponent
+    CrearCadidatoComponent,
+    GestionarComponent
   ],
   imports: [
     BrowserModule,
@@ -66,7 +70,9 @@ import { CrearCadidatoComponent } from './components/crear-cadidato/crear-cadida
     MatDialogModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatTabsModule,
+    MatSlideToggleModule
   ],
   providers: [
     { provide: MAT_DATE_LOCALE, useValue: 'es-ES' },
