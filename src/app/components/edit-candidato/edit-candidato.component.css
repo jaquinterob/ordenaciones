@@ -1,0 +1,33 @@
+.contenedor_formulario {
+    margin: 15px;
+    margin-top: 15px !important;
+    padding: 25px;
+    background-color: #383737;
+}
+
+@media (min-width: 600px) {
+    .contenedor_formulario {
+        width: 50%;
+        margin: auto;
+    }
+}
+
+.item_formulario {
+    display: flex;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.mat-progress-bar-buffer {
+    background-color: white;
+}
+
+.mat-progress-bar-element {
+    background-color: white;
+}
+
+.contenedor_barra {
+    position: relative;
+}

@@ -2,11 +2,11 @@
     <div class="contenedor_pagina">
         <span class="nombre_candidato">{{candidato.nombre}}</span><br>
         <span style="color:#afafaf">Feha de ordenación | Meta:</span>
-        <span>{{candidato.meta | date:'dd/MM/yyyy'}}</span><br>
+        <span> {{candidato.meta | date:'dd/MM/yyyy'}}</span><br>
         <span style="color:#afafaf">Celular:</span>
-        <span>{{candidato.celular}}</span>
-        <a [routerLink]="['/edit_candidato','64747']" class="flotante">
-            <mat-icon aria-hidden="false" aria-label="Example home icon">edit</mat-icon>
+        <span> {{candidato.celular}}</span>
+        <a [routerLink]="['/edit_candidato', candidato['_id']]" class="flotante">
+            <mat-icon color="accent">edit</mat-icon>
         </a>
         <hr>
         <div>
@@ -35,6 +35,9 @@
             <mat-slide-toggle (change)="actualizarGestiones()" [checked]="gestiones.rec" [(ngModel)]="gestiones.rec" class="gestion" color="primary">
                 Ha sido recomendado por el obispo
             </mat-slide-toggle>
+            <br><br>
+            <br><br>
+            <a mat-stroked-button [routerLink]="['/home']" style=" margin-left:5px " mat-button>Volver</a>
         </div>
     </div>
 </app-main-nav>

@@ -39,6 +39,8 @@ export class LoginComponent implements OnInit {
       this._api.validarCredenciales(this.user, this.pass, this.barrio).subscribe(
         data => {
           if (data['auth']) {
+            console.log(data);
+            
             this.mostrarToast(`Hola ${data['nombre']}!`, '', 3000, 'blue');
             this._router.navigate(['/home'])
             localStorage.setItem('ordenaciones', JSON.stringify({
@@ -46,6 +48,7 @@ export class LoginComponent implements OnInit {
               pass: this.pass,
               barrio: this.barrio
             }))
+            localStorage.setItem('idUsuario', data['_id'])
             this.loader = false
           } else {
             this.mostrarToast(data['message'], '', 3000, 'red');

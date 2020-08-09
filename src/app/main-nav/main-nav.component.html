@@ -3,9 +3,9 @@
         <mat-toolbar style="background-color:#c2185b">Menu</mat-toolbar>
         <mat-nav-list>
             <a mat-list-item [routerLink]="['/home']">Home</a>
-            <a mat-list-item href="#">Ver Gestiones</a>
-            <a mat-list-item [routerLink]="['/crear_candidato']">Agregar Cadidato</a>
-            <a mat-list-item href="#">Salir</a>
+            <!-- <a mat-list-item href="#">Ver Gestiones</a> -->
+            <a mat-list-item *ngIf="puedeEditar" [routerLink]="['/crear_candidato']">Agregar Cadidato</a>
+            <a mat-list-item (click)="cerrarSesion()">Salir</a>
         </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>

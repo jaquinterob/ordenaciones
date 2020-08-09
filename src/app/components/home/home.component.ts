@@ -3,6 +3,7 @@ import { ApiService } from './../../api.service';
 import { Component, OnInit, ErrorHandler } from '@angular/core';
 import { Router } from "@angular/router"
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 
 @Component({
@@ -11,6 +12,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  puedeEditar: boolean
   candidatos: candidatoInterface[]
   colores = {
     'blue': 'mat-accent',
@@ -20,14 +22,20 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.mostrarCandidatos()
+    this._api.usuarioPuedeEditar().subscribe(
+      data =>{
+        this.puedeEditar = data['puedeEditar']
+      }
+    )
   }
 
   crearCandidato() {
     this._router.navigate(['/crear_candidato'])
   }
 
-  mostrarCandidatos() {
-    this._api.mostrarCandidatos().subscribe(
+  async mostrarCandidatos() {
+    const {barrio} = await JSON.parse(localStorage.getItem('ordenaciones'))
+    this._api.mostrarCandidatos(barrio).subscribe(
       data => {
         if (data['ok']) {
           this.candidatos = data['candidatos']
@@ -36,13 +44,21 @@ export class HomeComponent implements OnInit {
         }
       },
       (error: ErrorHandler) => {
-        this.mostrarToast(`Error al cargar candidatos: ${error}`, '', 3000, 'red');
       }
     )
   }
 
   editarCandidato(id) {
-    this._router.navigate(['/gestionar', id])
+    this._api.usuarioPuedeEditar().subscribe(
+      data => {
+        this.puedeEditar = data['puedeEditar']
+        if (this.puedeEditar) {
+          this._router.navigate(['/gestionar', id])
+        } else {
+          this.mostrarToast(`Tu perfil de usuario no te permite editar ni gestionar Candidatos`, '', 3000, 'blue');
+        }
+      }
+    )
   }
 
   mostrarToast(mensaje: string, accion: string = '', duracion: number = 3000, color: string = 'blue') {

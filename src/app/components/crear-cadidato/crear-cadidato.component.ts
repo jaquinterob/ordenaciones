@@ -19,7 +19,14 @@ export class CrearCadidatoComponent implements OnInit {
   }
   constructor(private _toast: MatSnackBar, private _api: ApiService) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this.cargarBarrio()
+  }
+
+  async cargarBarrio() {
+    const { barrio } = await JSON.parse(localStorage.getItem('ordenaciones'))
+    this.candidato.barrio = barrio
+  }
 
   guardarCandidato() {
     this.loader = true
@@ -34,11 +41,11 @@ export class CrearCadidatoComponent implements OnInit {
           this.mostrarToast(`Error: ${error.toString()}`, '', 3000, 'red');
           this.loader = false
         }
-        )
-      } else {
-        this.mostrarToast("Faltan datos", '', 3000, 'red');
-        this.loader = false
-      }
+      )
+    } else {
+      this.mostrarToast("Faltan datos", '', 3000, 'red');
+      this.loader = false
+    }
   }
 
   validarCandidato() {

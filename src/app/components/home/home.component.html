@@ -41,7 +41,7 @@
         </mat-card>
     </div>
 
-    <button (click)="crearCandidato()" class="flotante" mat-fab color="primary" aria-label="Example icon button with a delete icon">
+    <button *ngIf="puedeEditar" (click)="crearCandidato()" class="flotante" mat-fab color="primary" aria-label="Example icon button with a delete icon">
         <mat-icon >add</mat-icon>
       </button>
 </app-main-nav>
