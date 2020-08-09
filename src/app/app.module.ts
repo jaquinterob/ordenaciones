@@ -36,6 +36,7 @@ import { MainNavComponent } from './main-nav/main-nav.component';
 import { HomeComponent } from './components/home/home.component';
 import { CrearCadidatoComponent } from './components/crear-cadidato/crear-cadidato.component';
 import { GestionarComponent } from './components/gestionar/gestionar.component';
+import { EditCandidatoComponent } from './components/edit-candidato/edit-candidato.component';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { GestionarComponent } from './components/gestionar/gestionar.component';
     MainNavComponent,
     HomeComponent,
     CrearCadidatoComponent,
-    GestionarComponent
+    GestionarComponent,
+    EditCandidatoComponent
   ],
   imports: [
     BrowserModule,

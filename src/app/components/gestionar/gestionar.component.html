@@ -5,6 +5,9 @@
         <span>{{candidato.meta | date:'dd/MM/yyyy'}}</span><br>
         <span style="color:#afafaf">Celular:</span>
         <span>{{candidato.celular}}</span>
+        <a [routerLink]="['/edit_candidato','64747']" class="flotante">
+            <mat-icon aria-hidden="false" aria-label="Example home icon">edit</mat-icon>
+        </a>
         <hr>
         <div>
             <mat-slide-toggle (change)="actualizarGestiones()" [checked]="gestiones.l1" [(ngModel)]="gestiones.l1" class="gestion" color="primary">

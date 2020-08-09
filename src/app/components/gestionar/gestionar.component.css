@@ -16,3 +16,12 @@
     margin-bottom: 0px;
     width: 100%;
 }
+
+.flotante {
+    position: absolute;
+    top: 89px;
+    left: 79%;
+    background-color: #333333;
+    padding: 10px;
+    border-radius: 5px;
+}
