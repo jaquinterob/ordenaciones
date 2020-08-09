@@ -10,6 +10,7 @@ import { Router } from "@angular/router"
 })
 export class LoginComponent implements OnInit {
   loader = false
+  barrios:any={}
   barrioPorDefecto: string = '1'
   barrio: string = this.barrioPorDefecto
   user: string = ''
@@ -22,6 +23,15 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.validarLocalStorage()
+    this.traerBarrios()
+  }
+
+  traerBarrios(){
+    this._api.traerBarrios().subscribe(
+      data =>{
+        this.barrios = data['barrios']
+      }
+    )
   }
 
   validarLocalStorage() {

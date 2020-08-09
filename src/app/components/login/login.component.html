@@ -9,9 +9,7 @@
         <mat-card-content>
             <mat-form-field color="accent">
                 <mat-select [(ngModel)]="barrio" [value]="barrioPorDefecto" placeholder="Seleccione el barrio">
-                    <mat-option value="1">Sabaneta</mat-option>
-                    <mat-option value="2">Belén</mat-option>
-                    <mat-option value="3">Robledo</mat-option>
+                    <mat-option *ngFor="let barrio of barrios" value="{{barrio['cod']}}">{{barrio['nombre']}}</mat-option>
                 </mat-select>
             </mat-form-field>
             <mat-form-field color="accent" class="example-full-width">

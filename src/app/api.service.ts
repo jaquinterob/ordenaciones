@@ -47,6 +47,10 @@ export class ApiService {
     return this._http.put('http://localhost:4000/api/ordenaciones/candidato/', candidato)
   }
 
+  traerBarrios(){
+    return this._http.get('http://localhost:4000/api/ordenaciones/barrios/')
+  }
+
 }
 
 
