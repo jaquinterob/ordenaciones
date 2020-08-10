@@ -7,11 +7,12 @@ import { gestionesInterface } from './models/gestiones.interface'
   providedIn: 'root'
 })
 export class ApiService {
+  API_URL: string = "http://localhost:5000/api/ordenaciones/"
   constructor(private _http: HttpClient) { }
 
   usuarioPuedeEditar() {
     const idUsuario =  localStorage.getItem('idUsuario')
-    return this._http.get('http://localhost:4000/api/ordenaciones/usuarios/' + idUsuario)
+    return this._http.get(this.API_URL+'usuarios/' + idUsuario)
   }
 
   validarCredenciales(user: string, pass: string, barrio: string) {
@@ -20,39 +21,39 @@ export class ApiService {
       "pass": pass,
       "barrio": barrio
     }
-    return this._http.post('http://localhost:4000/api/ordenaciones/usuarios/login', body)
+    return this._http.post(this.API_URL+'usuarios/login', body)
   }
 
   crearCandidato(candidato: candidatoInterface) {
-    return this._http.post<candidatoInterface>('http://localhost:4000/api/ordenaciones/candidatos/', candidato)
+    return this._http.post<candidatoInterface>(this.API_URL+'candidatos/', candidato)
   }
 
   mostrarCandidatos(barrio:string) {
-    return this._http.get('http://localhost:4000/api/ordenaciones/candidatos/'+barrio)
+    return this._http.get(this.API_URL+'candidatos/'+barrio)
   }
 
   mostrarCandidato(idCandidato) {
-    return this._http.get('http://localhost:4000/api/ordenaciones/candidato/' + idCandidato)
+    return this._http.get(this.API_URL+'candidato/' + idCandidato)
   }
 
   actualizarGestiones(gestiones: gestionesInterface) {
-    return this._http.put('http://localhost:4000/api/ordenaciones/gestiones/', gestiones)
+    return this._http.put(this.API_URL+'gestiones/', gestiones)
   }
 
   traerCandidato(idCandidato: string) {
-    return this._http.post('http://localhost:4000/api/ordenaciones/candidato/', { id: idCandidato })
+    return this._http.post(this.API_URL+'candidato/', { id: idCandidato })
   }
 
   actualizarCandidato(candidato: candidatoInterface) {
-    return this._http.put('http://localhost:4000/api/ordenaciones/candidato/', candidato)
+    return this._http.put(this.API_URL+'candidato/', candidato)
   }
 
   traerBarrios(){
-    return this._http.get('http://localhost:4000/api/ordenaciones/barrios/')
+    return this._http.get(this.API_URL+'barrios/')
   }
   
   borrarCandidato(idCandidato:string){
-    return this._http.delete('http://localhost:4000/api/ordenaciones/candidatos/' + idCandidato)
+    return this._http.delete(this.API_URL+'candidatos/' + idCandidato)
   }
 
 }
