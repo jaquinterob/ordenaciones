@@ -37,6 +37,7 @@ import { HomeComponent } from './components/home/home.component';
 import { CrearCadidatoComponent } from './components/crear-cadidato/crear-cadidato.component';
 import { GestionarComponent } from './components/gestionar/gestionar.component';
 import { EditCandidatoComponent } from './components/edit-candidato/edit-candidato.component';
+import { DialogDeleteComponent } from './components/dialog-delete/dialog-delete.component';
 
 
 @NgModule({
@@ -47,8 +48,11 @@ import { EditCandidatoComponent } from './components/edit-candidato/edit-candida
     HomeComponent,
     CrearCadidatoComponent,
     GestionarComponent,
-    EditCandidatoComponent
+    EditCandidatoComponent,
+    DialogDeleteComponent
   ],
+  entryComponents: [DialogDeleteComponent],
+
   imports: [
     BrowserModule,
     AppRoutingModule,

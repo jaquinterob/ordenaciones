@@ -1,13 +1,18 @@
 <app-main-nav>
-    <div class="contenedor_pagina">
+    <div class="contenedor_pagina animate__animated animate__fadeIn">
         <span class="nombre_candidato">{{candidato.nombre}}</span><br>
-        <span style="color:#afafaf">Feha de ordenación | Meta:</span>
+        <span style="color:#afafaf">Meta Ordenación:</span>
         <span> {{candidato.meta | date:'dd/MM/yyyy'}}</span><br>
         <span style="color:#afafaf">Celular:</span>
         <span> {{candidato.celular}}</span>
-        <a [routerLink]="['/edit_candidato', candidato['_id']]" class="flotante">
+        <a [routerLink]="['/edit_candidato', candidato['_id']]" class="contenedor_editar">
             <mat-icon color="accent">edit</mat-icon>
         </a>
+        <a (click)="abrirDialog()" class="contenedor_borrar">
+            <!-- <a (click)="borrarCandidato(candidato['_id'])" class="contenedor_borrar"> -->
+            <mat-icon color="accent">delete</mat-icon>
+        </a>
+
         <hr>
         <div>
             <mat-slide-toggle (change)="actualizarGestiones()" [checked]="gestiones.l1" [(ngModel)]="gestiones.l1" class="gestion" color="primary">

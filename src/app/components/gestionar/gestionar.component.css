@@ -17,11 +17,20 @@
     width: 100%;
 }
 
-.flotante {
+.contenedor_editar {
     position: absolute;
     top: 89px;
-    left: 79%;
+    left: 82%;
     background-color: #333333;
-    padding: 10px;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.contenedor_borrar {
+    position: absolute;
+    top: 89px;
+    left: 71%;
+    background-color: #333333;
+    padding: 5px;
     border-radius: 5px;
 }

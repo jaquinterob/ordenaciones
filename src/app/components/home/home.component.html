@@ -1,5 +1,5 @@
 <app-main-nav>
-    <div *ngFor="let candidato of candidatos" class="tarjeta">
+    <div *ngFor="let candidato of candidatos" class="tarjeta animate__animated animate__fadeIn">
         <mat-card (click)="editarCandidato(candidato['_id'])" class="example-card">
             <mat-card-header>
                 <mat-card-title>{{candidato.nombre}}</mat-card-title>
@@ -11,13 +11,13 @@
             </mat-card-header>
             <mat-card-content>
                 <div class="contenedor_miniaturas">
-                    <div [ngClass]="{'cumplida':candidato['gestiones'][0].l1}" class="miniatura ">
+                    <div [ngClass]="{'cumplida':candidato['gestiones'][0].l1}" class="miniatura">
                         L1
                     </div>
-                    <div [ngClass]="{'cumplida':candidato['gestiones'][0].l2}" class="miniatura ">
+                    <div [ngClass]="{'cumplida':candidato['gestiones'][0].l2}" class="miniatura">
                         L2
                     </div>
-                    <div [ngClass]="{'cumplida':candidato['gestiones'][0].l3}" class="miniatura ">
+                    <div [ngClass]="{'cumplida':candidato['gestiones'][0].l3}" class="miniatura">
                         L3
                     </div>
                     <div [ngClass]="{'cumplida':candidato['gestiones'][0].l4}" class="miniatura">

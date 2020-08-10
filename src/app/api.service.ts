@@ -50,6 +50,10 @@ export class ApiService {
   traerBarrios(){
     return this._http.get('http://localhost:4000/api/ordenaciones/barrios/')
   }
+  
+  borrarCandidato(idCandidato:string){
+    return this._http.delete('http://localhost:4000/api/ordenaciones/candidatos/' + idCandidato)
+  }
 
 }
 
