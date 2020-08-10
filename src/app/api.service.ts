@@ -7,8 +7,7 @@ import { gestionesInterface } from './models/gestiones.interface'
   providedIn: 'root'
 })
 export class ApiService {
-  API_URL: string = "http://190.7.153.162:5000/api/ordenaciones/"
-  // API_URL: string = "http://localhost:5000/api/ordenaciones/"
+  API_URL: string = "http://127.0.0.1:5000/api/ordenaciones/"
   constructor(private _http: HttpClient) { }
 
   usuarioPuedeEditar() {
