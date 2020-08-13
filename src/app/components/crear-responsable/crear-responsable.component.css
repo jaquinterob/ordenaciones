@@ -19,25 +19,3 @@
 .full-width {
     width: 100%;
 }
-
-.mat-progress-bar-buffer {
-    background-color: white;
-}
-
-.mat-progress-bar-element {
-    background-color: white;
-}
-
-.contenedor_barra {
-    position: relative;
-}
-
-.mitad {
-    width: 100%;
-}
-
-@media (min-width: 600px) {
-    .mitad {
-        width: 50%;
-    }
-}

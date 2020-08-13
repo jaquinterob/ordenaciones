@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ErrorHandler } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
 })
 export class MainNavComponent implements OnInit {
   puedeEditar: boolean
+  barrio: any = {}
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches),
@@ -27,12 +28,23 @@ export class MainNavComponent implements OnInit {
     )
   }
   ngOnInit() {
-
-
+    this. traerBarrio()
   }
-  async cerrarSesion() {
-    await localStorage.removeItem('ordenaciones')
-    await localStorage.removeItem('idUsuario')
+
+  cerrarSesion() {
+    localStorage.removeItem('ordenaciones')
+    localStorage.removeItem('idUsuario')
     this._router.navigate(['/login'])
   }
+
+  async traerBarrio() {
+    const { barrio } = await JSON.parse(localStorage.getItem('ordenaciones'))
+    this._api.traerBarrio(barrio).subscribe(
+      data => {
+        this.barrio = data['barrio']['nombre']
+      },
+      (error:ErrorHandler) => console.log(error)
+    )
+  }
+
 }

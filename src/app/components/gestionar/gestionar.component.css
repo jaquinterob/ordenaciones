@@ -34,3 +34,27 @@
     padding: 5px;
     border-radius: 5px;
 }
+
+.gestion_visual {
+    background-color: #2a2727;
+    padding: 10px;
+    border-radius: 9px;
+    color: #b4b5ae;
+    margin-bottom: 7px;
+    margin-left: 7px;
+    margin-right: 7px;
+}
+
+@media (min-width: 600px) {
+    .gestion_visual {
+        width: 70%;
+        margin-bottom: 7px;
+        margin-left: 7px;
+        margin-right: 7px;
+    }
+}
+
+.cabecera_gestion {
+    color: #fff134;
+    margin-bottom: 5px;
+}

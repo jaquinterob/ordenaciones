@@ -1,5 +1,6 @@
 import { Component, OnInit, ErrorHandler } from '@angular/core';
 import { candidatoInterface } from '../../models/candidato.interface'
+import { responsableInterface } from '../../models/responsable.interface'
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ApiService } from "../../api.service";
 
@@ -13,6 +14,7 @@ export class CrearCadidatoComponent implements OnInit {
   loader = false
   candidato: candidatoInterface = {}
   minDate = new Date()
+  responsables: responsableInterface[] = []
   colores = {
     'blue': 'mat-accent',
     'red': 'mat-warn'
@@ -21,6 +23,7 @@ export class CrearCadidatoComponent implements OnInit {
 
   ngOnInit(): void {
     this.cargarBarrio()
+    this.traerResponsables()
   }
 
   async cargarBarrio() {
@@ -47,9 +50,21 @@ export class CrearCadidatoComponent implements OnInit {
       this.loader = false
     }
   }
-
+  
   validarCandidato() {
-    return (this.candidato.celular && this.candidato.meta && this.candidato.nombre)
+    return (this.candidato.celular && this.candidato.meta && this.candidato.nombre && this.candidato.responsable)
+  }
+
+  async traerResponsables() {
+    const { barrio } = await JSON.parse(localStorage.getItem('ordenaciones'))
+    this._api.traerResponsables(barrio).subscribe(
+      data => {
+        this.responsables = data['responsables']
+      },
+      (error: ErrorHandler) => {
+        this.mostrarToast(`Error al cargar select ${error}`, '', 3000, 'red');
+      }
+    )
   }
 
   mostrarToast(mensaje: string, accion: string = '', duracion: number = 3000, color: string = 'blue') {
@@ -63,4 +78,5 @@ export class CrearCadidatoComponent implements OnInit {
       }
     );
   }
+  
 }

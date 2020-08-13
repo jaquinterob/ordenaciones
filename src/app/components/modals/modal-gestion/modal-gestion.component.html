@@ -1,0 +1,19 @@
+<h2 mat-dialog-title>Detalle de gestión <b>{{data['item'] | uppercase}}</b></h2>
+<mat-dialog-content class="contenedor_form">
+    <mat-form-field color="accent" appearance="fill">
+        <mat-label>Fecha de la gestión</mat-label>
+        <input [max]="maxDate" [(ngModel)]="data['gestiones'][data['item']+'_fecha']" matInput [matDatepicker]="picker1">
+        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Comentarios</mat-label>
+        <textarea [(ngModel)]="data['gestiones'][data['item']+'_comentario']" matInput></textarea>
+    </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button (click)="limpiarDatos()" mat-button mat-dialog-close={{false}}>CANCELAR</button>
+    <button [disabled]="!((data['gestiones'][data['item']+'_comentario'] != undefined && data['gestiones'][data['item']+'_comentario'] != '' ) && (data['gestiones'][data['item']+'_comentario'] != undefined && data['gestiones'][data['item']+'_comentario'] != ''))"
+        (click)="validarDetalles()" mat-flat-button mat-dialog-close={{true}} color="primary">GUARDAR</button>
+    <!-- <button [disabled]="!(data['gestiones'][data['item']+'_comentario'] != undefined && data['gestiones'][data['item']+'_comentario'] != undefined)" (click)="validarDetalles()" mat-flat-button mat-dialog-close={{true}} color="primary">GUARDAR</button> -->
+</mat-dialog-actions>

@@ -3,5 +3,6 @@ export interface candidatoInterface{
     celular?: string,
     meta?: Date,
     barrio?:string,
-    activo?:boolean
+    activo?:boolean,
+    responsable?: string
 }

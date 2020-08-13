@@ -5,6 +5,7 @@
             <a mat-list-item [routerLink]="['/home']">Home</a>
             <!-- <a mat-list-item href="#">Ver Gestiones</a> -->
             <a mat-list-item *ngIf="puedeEditar" [routerLink]="['/crear_candidato']">Agregar Cadidato</a>
+            <a mat-list-item *ngIf="puedeEditar" [routerLink]="['/responsables']">Responsables</a>
             <a mat-list-item (click)="cerrarSesion()">Salir</a>
         </mat-nav-list>
     </mat-sidenav>
@@ -13,7 +14,7 @@
             <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-            <span>ORDENACIONES | Sabaneta</span>
+            <span>ORDENACIONES | {{barrio}}</span>
         </mat-toolbar>
         <!-- Add Content Here -->
         <ng-content></ng-content>

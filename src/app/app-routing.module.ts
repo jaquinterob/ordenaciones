@@ -1,3 +1,4 @@
+import { CrearResponsableComponent } from './components/crear-responsable/crear-responsable.component';
 import { LoginComponent } from './components/login/login.component';
 import { CrearCadidatoComponent } from './components/crear-cadidato/crear-cadidato.component'
 import { NgModule } from '@angular/core';
@@ -5,6 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { GestionarComponent } from './components/gestionar/gestionar.component';
 import { EditCandidatoComponent } from './components/edit-candidato/edit-candidato.component';
+import { ResponsablesComponent } from './components/responsables/responsables.component';
 
 const routes: Routes = [
   {
@@ -26,6 +28,14 @@ const routes: Routes = [
   {
     path: 'edit_candidato/:id',
     component: EditCandidatoComponent,
+  },
+  {
+    path: 'responsables',
+    component: ResponsablesComponent,
+  },
+  {
+    path: 'crear_responsable',
+    component: CrearResponsableComponent,
   },
   {
     path: '**',

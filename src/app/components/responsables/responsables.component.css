@@ -1,0 +1,46 @@
+.contenedor_responsables {
+    margin: 15px;
+}
+
+.item_responsable {
+    background-color: #2b2b2b;
+    margin-bottom: 7px;
+    border-radius: 5px;
+    padding: 10px;
+    font-weight: lighter;
+    position: relative;
+}
+
+.nombre_responsable {
+    font-size: 15px;
+}
+
+.editar_responsable {
+    position: absolute;
+    top: 17px;
+    left: 301px;
+}
+
+.borrar_responsable {
+    position: absolute;
+    top: 17px;
+    left: 260px;
+}
+
+@media (min-width: 600px) {
+    .item_responsable {
+        background-color: #2b2b2b;
+        margin-bottom: 7px;
+        border-radius: 5px;
+        padding: 10px;
+        font-weight: lighter;
+        position: relative;
+        width: 330px;
+    }
+}
+
+.flotante {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+}

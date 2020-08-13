@@ -1,0 +1,24 @@
+<app-main-nav>
+    <div class="contenedor_formulario animate__animated animate__fadeIn">
+        <h1>Nuevo Responsable</h1>
+        <div class="item_formulario">
+            <mat-form-field color="accent" class="full-width">
+                <mat-label>Nombre</mat-label>
+                <input [(ngModel)]="responsable.nombre" matInput>
+            </mat-form-field>
+        </div>
+        <div class="item_formulario">
+            <mat-form-field color="accent" class="full-width">
+                <mat-label>Celular</mat-label>
+                <input [(ngModel)]="responsable.celular" type="number" matInput>
+            </mat-form-field>
+        </div>
+
+        <div class="item_formulario">
+            <div class="item_formulario">
+                <button [disabled]="!((responsable.nombre != undefined && responsable.nombre != '') && (responsable.celular != undefined && responsable.celular != ''))" (click)="guardarResponsable()" mat-raised-button color="primary">CREAR</button>
+                <a [routerLink]="['/responsables']" style=" margin-left:5px " mat-button>VER RESPONSABLES</a>
+            </div>
+        </div>
+    </div>
+</app-main-nav>

@@ -1,0 +1,20 @@
+<app-main-nav>
+    <div class="contenedor_responsables animate__animated animate__fadeIn">
+        <h1>Responsables</h1>
+        <div *ngFor="let responsable of responsables" class="item_responsable animate__animated animate__fadeIn">
+            <span class="nombre_responsable">{{responsable.nombre}}</span>
+            <br>
+            <span>Celular: {{responsable.celular}}</span>
+            <div class="editar_responsable">
+                <mat-icon (click)="editarResponsable(responsable['_id'])" aria-hidden="false" aria-label="Example home icon">edit</mat-icon>
+            </div>
+            <div class="borrar_responsable">
+                <mat-icon (click)="borrarResponsable(responsable['_id'])" aria-hidden="false" aria-label="Example home icon">delete</mat-icon>
+            </div>
+        </div>
+    </div>
+
+    <button *ngIf="puedeEditar" (click)="crearResponsable()" class="flotante" mat-fab color="primary" aria-label="Example icon button with a delete icon">
+            <mat-icon>add</mat-icon>
+        </button>
+</app-main-nav>

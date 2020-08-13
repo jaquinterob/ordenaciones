@@ -28,6 +28,9 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { MatListModule } from '@angular/material/list';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatTableModule } from '@angular/material/table';
+
 
 //componentes
 import { LoginComponent } from './components/login/login.component';
@@ -38,6 +41,10 @@ import { CrearCadidatoComponent } from './components/crear-cadidato/crear-cadida
 import { GestionarComponent } from './components/gestionar/gestionar.component';
 import { EditCandidatoComponent } from './components/edit-candidato/edit-candidato.component';
 import { DialogDeleteComponent } from './components/dialog-delete/dialog-delete.component';
+import { ModalGestionComponent } from './components/modals/modal-gestion/modal-gestion.component';
+import { ResponsablesComponent } from './components/responsables/responsables.component';
+import { BorrarResponsableComponent } from './components/modals/borrar-responsable/borrar-responsable.component';
+import { CrearResponsableComponent } from './components/crear-responsable/crear-responsable.component';
 
 
 @NgModule({
@@ -49,7 +56,11 @@ import { DialogDeleteComponent } from './components/dialog-delete/dialog-delete.
     CrearCadidatoComponent,
     GestionarComponent,
     EditCandidatoComponent,
-    DialogDeleteComponent
+    DialogDeleteComponent,
+    ModalGestionComponent,
+    ResponsablesComponent,
+    BorrarResponsableComponent,
+    CrearResponsableComponent
   ],
   entryComponents: [DialogDeleteComponent],
 
@@ -78,7 +89,9 @@ import { DialogDeleteComponent } from './components/dialog-delete/dialog-delete.
     MatNativeDateModule,
     MatProgressSpinnerModule,
     MatTabsModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatExpansionModule,
+    MatTableModule
   ],
   providers: [
     { provide: MAT_DATE_LOCALE, useValue: 'es-ES' },

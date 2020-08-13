@@ -2,12 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { candidatoInterface } from './models/candidato.interface'
 import { gestionesInterface } from './models/gestiones.interface'
+import { responsableInterface } from './models/responsable.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
-  API_URL: string = "http://190.7.153.162:5000/api/ordenaciones/"
+  // API_URL: string = "http://190.7.153.162:5000/api/ordenaciones/"
+  API_URL: string = "http://localhost:5000/api/ordenaciones/"
   constructor(private _http: HttpClient) { }
 
   usuarioPuedeEditar() {
@@ -54,6 +56,22 @@ export class ApiService {
   
   borrarCandidato(idCandidato:string){
     return this._http.delete(this.API_URL+'candidatos/' + idCandidato)
+  }
+  
+  traerBarrio(codBarrio:string){
+    return this._http.get(this.API_URL+'barrios/' + codBarrio)
+  }
+
+  traerResponsables(barrio:string){
+    return this._http.get(this.API_URL+'responsables/'+barrio)
+  }
+  
+  eliminarResponsable(_id:string){
+    return this._http.delete(this.API_URL + 'responsables/' + _id)
+  }
+
+  crearResponsable(responsable:responsableInterface){
+    return this._http.post(this.API_URL + 'responsables/',responsable)
   }
 
 }
