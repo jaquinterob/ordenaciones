@@ -3,6 +3,7 @@ import { candidatoInterface } from '../../models/candidato.interface'
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ApiService } from "../../api.service";
 import { ActivatedRoute } from '@angular/router';
+import { responsableInterface } from 'src/app/models/responsable.interface';
 
 @Component({
   selector: 'app-edit-candidato',
@@ -14,6 +15,7 @@ export class EditCandidatoComponent implements OnInit {
   loader = false
   candidato: candidatoInterface = {}
   minDate = new Date()
+  responsables:responsableInterface = {}
   colores = {
     'blue': 'mat-accent',
     'red': 'mat-warn'
@@ -24,6 +26,7 @@ export class EditCandidatoComponent implements OnInit {
   ngOnInit(): void {
     this.id = this._activeRoute.snapshot.params.id
     this.traerDatosCandidato()
+    this.traerResponsables()
   }
 
   traerDatosCandidato() {
@@ -64,6 +67,22 @@ export class EditCandidatoComponent implements OnInit {
       },
       (error:ErrorHandler)=>{
         this.mostrarToast(`Error: ${error}`, '', 3000, 'red');
+      }
+      )
+    }
+    
+    traerResponsables(){
+      const {barrio} = JSON.parse(localStorage.getItem('ordenaciones'))
+      this._api.traerResponsables(barrio).subscribe(
+        data=>{
+          if (data['ok']) {
+            this.responsables = data['responsables']
+            console.log(data);
+            
+          } 
+        },
+        (error:ErrorHandler)=>{
+          this.mostrarToast(`Error: ${error}`, '', 3000, 'red');
       }
     )
   }

@@ -17,14 +17,14 @@
 
 .editar_responsable {
     position: absolute;
-    top: 17px;
-    left: 301px;
+    top: 25px;
+    right: 25px;
 }
 
 .borrar_responsable {
     position: absolute;
-    top: 17px;
-    left: 260px;
+    top: 25px;
+    right: 64px;
 }
 
 @media (min-width: 600px) {

@@ -13,7 +13,13 @@
                 <input [(ngModel)]="responsable.celular" type="number" matInput>
             </mat-form-field>
         </div>
-
+        <div class="item_formulario">
+            <mat-form-field color="accent" class="full-width">
+                <mat-label>Llamamiento</mat-label>
+                <input [(ngModel)]="responsable.llamamiento" matInput>
+            </mat-form-field>
+        </div>
+        <br>
         <div class="item_formulario">
             <div class="item_formulario">
                 <button [disabled]="!((responsable.nombre != undefined && responsable.nombre != '') && (responsable.celular != undefined && responsable.celular != ''))" (click)="guardarResponsable()" mat-raised-button color="primary">CREAR</button>

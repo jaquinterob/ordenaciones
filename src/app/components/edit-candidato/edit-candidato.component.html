@@ -15,13 +15,26 @@
             </mat-form-field>
         </div>
         <div class="item_formulario">
-            <mat-form-field color="accent" appearance="fill">
+            <mat-form-field color="accent" class="mitad" appearance="fill">
                 <mat-label>Fecha de ordenación | Meta</mat-label>
                 <input [min]="minDate" [(ngModel)]="candidato.meta" matInput [matDatepicker]="picker1">
                 <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
                 <mat-datepicker #picker1></mat-datepicker>
             </mat-form-field>
         </div>
+
+
+        <div class="item_formulario">
+            <mat-form-field color="accent" class="mitad" appearance="fill">
+                <mat-label>Responsable</mat-label>
+                <mat-select [(ngModel)]="candidato.responsable">
+                    <mat-option *ngFor="let responsable of responsables" [value]="responsable['_id']">
+                        {{responsable['nombre']}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
         <div class="item_formulario">
             <div class="item_formulario">
                 <button (click)="actualizarCandidato()" mat-raised-button color="primary">ACTUALIZAR</button>

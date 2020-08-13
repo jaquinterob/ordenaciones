@@ -37,6 +37,8 @@ export class HomeComponent implements OnInit {
       data => {
         if (data['ok']) {
           this.candidatos = data['candidatos']
+          console.log(this.candidatos);
+          
         } else {
           this.mostrarToast(data['message'], '', 3000, 'red');
         }

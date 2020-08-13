@@ -44,3 +44,13 @@
     bottom: 15px;
     right: 15px;
 }
+
+.responsable_string {
+    font-weight: lighter;
+    color: white;
+}
+
+.datos_candidato {
+    font-weight: 500;
+    color: #bfc300;
+}

@@ -3,10 +3,15 @@
         <mat-card (click)="editarCandidato(candidato['_id'])" class="example-card">
             <mat-card-header>
                 <mat-card-title>{{candidato.nombre}}</mat-card-title>
-                <mat-card-subtitle>Meta de ordenación: {{candidato.meta | date:'dd/MM/yyyy'}}<br>
-                    <span>Celular: {{candidato.celular}}</span>
-
-
+                <mat-card-subtitle>
+                    <div class="datos_candidato">Meta de ordenación: {{candidato.meta | date:'dd/MM/yyyy'}}<br>
+                        <span>Celular: {{candidato.celular}}</span><br>
+                    </div>
+                    <div class="responsable_string">
+                        <span>Responsable: {{candidato.responsable_array[0]['nombre']}}</span><br>
+                        <span>Llamamiento: {{candidato.responsable_array[0]['llamamiento']}}</span><br>
+                        <span>Celular: {{candidato.responsable_array[0]['celular']}}</span><br>
+                    </div>
                 </mat-card-subtitle>
             </mat-card-header>
             <mat-card-content>
