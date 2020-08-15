@@ -66,12 +66,20 @@ export class ApiService {
     return this._http.get(this.API_URL+'responsables/'+barrio)
   }
   
+  traerResponsable(idResponsable:string){
+    return this._http.get(this.API_URL+'responsable/'+idResponsable)
+  }
+  
   eliminarResponsable(_id:string){
     return this._http.delete(this.API_URL + 'responsables/' + _id)
   }
 
   crearResponsable(responsable:responsableInterface){
     return this._http.post(this.API_URL + 'responsables/',responsable)
+  }
+  
+  actualizarResponsable(responsable:responsableInterface){
+    return this._http.put(this.API_URL + 'responsables/',responsable)
   }
 
 }

@@ -49,6 +49,7 @@ export class ResponsablesComponent implements OnInit {
 
   editarResponsable(_id) {
     console.log('editando', _id);
+    this._router.navigate(['/edit_responsbles', _id]);
   }
 
   borrarResponsable(_id) {

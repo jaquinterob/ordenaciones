@@ -45,6 +45,7 @@ import { ModalGestionComponent } from './components/modals/modal-gestion/modal-g
 import { ResponsablesComponent } from './components/responsables/responsables.component';
 import { BorrarResponsableComponent } from './components/modals/borrar-responsable/borrar-responsable.component';
 import { CrearResponsableComponent } from './components/crear-responsable/crear-responsable.component';
+import { EditResponsableComponent } from './components/edit-responsable/edit-responsable.component';
 
 
 @NgModule({
@@ -60,7 +61,8 @@ import { CrearResponsableComponent } from './components/crear-responsable/crear-
     ModalGestionComponent,
     ResponsablesComponent,
     BorrarResponsableComponent,
-    CrearResponsableComponent
+    CrearResponsableComponent,
+    EditResponsableComponent
   ],
   entryComponents: [DialogDeleteComponent],
 

@@ -1,3 +1,4 @@
+import { EditResponsableComponent } from './components/edit-responsable/edit-responsable.component';
 import { CrearResponsableComponent } from './components/crear-responsable/crear-responsable.component';
 import { LoginComponent } from './components/login/login.component';
 import { CrearCadidatoComponent } from './components/crear-cadidato/crear-cadidato.component'
@@ -36,6 +37,10 @@ const routes: Routes = [
   {
     path: 'crear_responsable',
     component: CrearResponsableComponent,
+  },
+  {
+    path: 'edit_responsbles/:idResponsable',
+    component: EditResponsableComponent,
   },
   {
     path: '**',

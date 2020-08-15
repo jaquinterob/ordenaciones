@@ -4,13 +4,14 @@
             <mat-card-header>
                 <mat-card-title>{{candidato.nombre}}</mat-card-title>
                 <mat-card-subtitle>
-                    <div class="datos_candidato">Meta de ordenación: {{candidato.meta | date:'dd/MM/yyyy'}}<br>
+                    <div class="datos_candidato">Meta de ordenación: {{candidato.meta | date:'dd/MM/yyyy'}} <br> Faltan
+                        <span class="dias_restantes"> {{candidato.diasRestantes}} {{candidato.diasRestantes != 1 ? "dias":"dia"}}</span><br>
                         <span>Celular: {{candidato.celular}}</span><br>
                     </div>
                     <div class="responsable_string">
-                        <span>Responsable: {{candidato.responsable_array[0]['nombre']}}</span><br>
-                        <span>Llamamiento: {{candidato.responsable_array[0]['llamamiento']}}</span><br>
-                        <span>Celular: {{candidato.responsable_array[0]['celular']}}</span><br>
+                        <span>Responsable: {{candidato['responsable_array'][0]['nombre']}}</span><br>
+                        <span>Llamamiento: {{candidato['responsable_array'][0]['llamamiento']}}</span><br>
+                        <span>Celular: {{candidato['responsable_array'][0]['celular']}}</span><br>
                     </div>
                 </mat-card-subtitle>
             </mat-card-header>
@@ -41,7 +42,6 @@
                         REC
                     </div>
                 </div>
-
             </mat-card-content>
         </mat-card>
     </div>

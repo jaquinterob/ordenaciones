@@ -4,5 +4,6 @@ export interface candidatoInterface{
     meta?: Date,
     barrio?:string,
     activo?:boolean,
-    responsable?: string
+    responsable?: string,
+    diasRestantes?:number
 }

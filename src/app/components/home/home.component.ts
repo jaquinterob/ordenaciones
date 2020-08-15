@@ -3,6 +3,7 @@ import { ApiService } from './../../api.service';
 import { Component, OnInit, ErrorHandler } from '@angular/core';
 import { Router } from "@angular/router"
 import { MatSnackBar } from '@angular/material/snack-bar';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-home',
@@ -21,7 +22,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.mostrarCandidatos()
     this._api.usuarioPuedeEditar().subscribe(
-      data =>{
+      data => {
         this.puedeEditar = data['puedeEditar']
       }
     )
@@ -32,13 +33,12 @@ export class HomeComponent implements OnInit {
   }
 
   async mostrarCandidatos() {
-    const {barrio} = await JSON.parse(localStorage.getItem('ordenaciones'))
+    const { barrio } = await JSON.parse(localStorage.getItem('ordenaciones'))
     this._api.mostrarCandidatos(barrio).subscribe(
       data => {
         if (data['ok']) {
           this.candidatos = data['candidatos']
-          console.log(this.candidatos);
-          
+          this.agregarDiasRestantes()
         } else {
           this.mostrarToast(data['message'], '', 3000, 'red');
         }
@@ -59,6 +59,14 @@ export class HomeComponent implements OnInit {
         }
       }
     )
+  }
+
+  agregarDiasRestantes() {
+    for (const candidato of this.candidatos) {
+      const fecha2 = moment(candidato.meta)
+      const fecha1 = moment(new Date())
+      candidato.diasRestantes =fecha2.diff(fecha1, 'days')
+    }
   }
 
   mostrarToast(mensaje: string, accion: string = '', duracion: number = 3000, color: string = 'blue') {
