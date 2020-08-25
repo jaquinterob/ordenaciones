@@ -26,8 +26,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatListModule } from '@angular/material/list';
-import {MatTabsModule} from '@angular/material/tabs';
-import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatTableModule } from '@angular/material/table';
 
@@ -46,6 +46,7 @@ import { ResponsablesComponent } from './components/responsables/responsables.co
 import { BorrarResponsableComponent } from './components/modals/borrar-responsable/borrar-responsable.component';
 import { CrearResponsableComponent } from './components/crear-responsable/crear-responsable.component';
 import { EditResponsableComponent } from './components/edit-responsable/edit-responsable.component';
+import { AlertaResponsablesComponent } from './components/modals/alerta-responsables/alerta-responsables.component';
 
 
 @NgModule({
@@ -62,7 +63,8 @@ import { EditResponsableComponent } from './components/edit-responsable/edit-res
     ResponsablesComponent,
     BorrarResponsableComponent,
     CrearResponsableComponent,
-    EditResponsableComponent
+    EditResponsableComponent,
+    AlertaResponsablesComponent
   ],
   entryComponents: [DialogDeleteComponent],
 

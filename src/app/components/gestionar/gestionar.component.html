@@ -9,10 +9,8 @@
             <mat-icon color="accent">edit</mat-icon>
         </a>
         <a (click)="abrirDialog()" class="contenedor_borrar">
-            <!-- <a (click)="borrarCandidato(candidato['_id'])" class="contenedor_borrar"> -->
             <mat-icon color="accent">delete</mat-icon>
         </a>
-
         <hr>
         <div>
             <mat-slide-toggle (change)="abrir_modal($event,'l1')" [checked]="gestiones.l1" [(ngModel)]="gestiones.l1" class="gestion" color="primary">
@@ -42,34 +40,8 @@
             </mat-slide-toggle>
             <br><br>
             <a mat-stroked-button [routerLink]="['/home']" style=" margin-left:5px " mat-button>Volver</a>
-
-
-
-
         </div>
-
     </div>
-    <!-- <mat-accordion class="example-headers-align" multi>
-        <mat-expansion-panel>
-            <mat-expansion-panel-header>
-                <mat-panel-description>
-                    Ver gestiones
-                </mat-panel-description>
-            </mat-expansion-panel-header>
-
-            <mat-form-field>
-                <mat-label>First name</mat-label>
-                <input matInput>
-            </mat-form-field>
-
-            <mat-form-field>
-                <mat-label>Age</mat-label>
-                <input matInput type="number" min="1">
-            </mat-form-field>
-
-        </mat-expansion-panel>
-
-    </mat-accordion> -->
     <hr>
     <h2 style="margin-left: 36px;margin-top: 19px;">Gestiones</h2>
 

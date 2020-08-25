@@ -6,7 +6,7 @@
         <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
         <mat-datepicker #picker1></mat-datepicker>
     </mat-form-field>
-    <mat-form-field appearance="fill">
+    <mat-form-field color="accent" appearance="fill">
         <mat-label>Comentarios</mat-label>
         <textarea [(ngModel)]="data['gestiones'][data['item']+'_comentario']" matInput></textarea>
     </mat-form-field>

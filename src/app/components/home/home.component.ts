@@ -1,9 +1,11 @@
+import { AlertaResponsablesComponent } from './../modals/alerta-responsables/alerta-responsables.component';
 import { candidatoInterface } from './../../models/candidato.interface';
 import { ApiService } from './../../api.service';
 import { Component, OnInit, ErrorHandler } from '@angular/core';
 import { Router } from "@angular/router"
 import { MatSnackBar } from '@angular/material/snack-bar';
 import * as moment from 'moment';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-home',
@@ -17,9 +19,10 @@ export class HomeComponent implements OnInit {
     'blue': 'mat-accent',
     'red': 'mat-warn'
   }
-  constructor(private _toast: MatSnackBar, private _router: Router, private _api: ApiService) { }
+  constructor(private _toast: MatSnackBar, private _router: Router, private _api: ApiService, private _dialog: MatDialog) { }
 
   ngOnInit(): void {
+    this.hayResponsables()
     this.mostrarCandidatos()
     this._api.usuarioPuedeEditar().subscribe(
       data => {
@@ -65,7 +68,7 @@ export class HomeComponent implements OnInit {
     for (const candidato of this.candidatos) {
       const fecha2 = moment(candidato.meta)
       const fecha1 = moment(new Date())
-      candidato.diasRestantes =fecha2.diff(fecha1, 'days')
+      candidato.diasRestantes = fecha2.diff(fecha1, 'days')
     }
   }
 
@@ -78,7 +81,30 @@ export class HomeComponent implements OnInit {
         verticalPosition: 'bottom',
         panelClass: ['mat-toolbar', this.colores[color]]
       }
-    );
+    )
+  }
+
+  async hayResponsables() {
+    const { barrio } = await JSON.parse(localStorage.getItem('ordenaciones'))
+    this._api.traerResponsables(barrio).subscribe(
+      data => {
+        if (data['responsables'].length == 0) {
+          this.abrirDialog()
+        } 
+      },
+      (error: ErrorHandler)=>{
+        console.log(error);
+      }
+    )
+  }
+
+  abrirDialog() {
+    const dialogInstace = this._dialog.open(AlertaResponsablesComponent, { data: { titulo: 'Atención' }, disableClose: true })
+    dialogInstace.afterClosed().subscribe(
+      res => {
+        this._router.navigate(['/crear_responsable'])
+      }
+    )
   }
 
 }
